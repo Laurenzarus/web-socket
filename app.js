@@ -4,7 +4,7 @@ let wss = new WebSocket.Server({ port: process.env.PORT || 8080 });
 
 console.log("websocket code being run!");
 
-var content = '';
+// var content = '';
 
 wss.on('connection', (ws) => {
 
@@ -12,7 +12,7 @@ wss.on('connection', (ws) => {
     console.log(`Received new content: ${message}`);
     // content = message;
     wss.clients.forEach((client) => {
-      client.send(message);
+      client.send(String(message));
     });
 
   });
