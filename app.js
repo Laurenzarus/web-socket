@@ -10,7 +10,7 @@ wss.on('connection', (ws) => {
 
   ws.on('message', (message) => {
     console.log(`Received new content: ${message}`);
-    content = message;
+    content = message.data;
     wss.clients.forEach((client) => {
       client.send(content);
     });
